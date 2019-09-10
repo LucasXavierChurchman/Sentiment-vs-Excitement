@@ -1,6 +1,7 @@
 import numpy as np 
 import pandas as pd 
 import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
 import prep_data
 
 nba_df = pd.read_csv('data/rNBACombinedScored.csv', sep = ',')
@@ -25,7 +26,7 @@ for i, df in enumerate(list_dfs):
     df = df[(df['created_utc_dt'] >= '2016-06-20 00:00:00') & (df['created_utc_dt'] <= '2016-06-20 02:45:00')]
 
     #create time bins. 330 bins will make slices of roughly 30 seconds
-    df = prep_data.createTimeBins(df, n_bins = 330) 
+    df = prep_data.createTimeBins(df, n_bins = 100) 
 
     #printing first and last rows to make sure things look ok
     # print(i,'-------------------------------------\n', df[::df.shape[0]-1] )
@@ -42,15 +43,16 @@ names = ['r/NBA Comments',
         'r/ClevelandCavs comments'
         'r/Warriors comments']
 
-colors = ['Black', 'Red', 'Blue', 'DarkRed', 'LightBlue']
 
-fig, axs = plt.subplots(1, figsize=(16, 10))
+#Plot mean sentiment scores
+fig, axs = plt.subplots(3,2,figsize=(16, 30))
+data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+x = np.linspace(0, data.shape[0], num = data.shape[0])
+axs[0,0].plot(x, data['sentiment_score']['mean'], color = 'black', alpha = 0.5)
+axs[0,0].set_ylim(-3,3)
+plt.grid()
+axs[0,1].hist(data['sentiment_score']['mean'], color = 'black', bins = 100, alpha = 0.5)
+# axs[0].set_title('All /r/NBA comments')
+plt.grid()
 
-i = 0
-for df in [dubs_df, cavs_df]:
-    data = df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
-    x = np.linspace(0, data.shape[0], num = data.shape[0])
-    axs.plot(x, data['sentiment_score']['mean'], color = colors[i], alpha = 0.8, grid = True)
-    i += 1
-    
 plt.show()
