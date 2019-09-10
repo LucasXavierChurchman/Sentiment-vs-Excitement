@@ -52,29 +52,22 @@ def calcSentimentScores(df, comment_text_col_name):
         except:
             sentiment_scores.append(np.nan)
 
-
     df['sentiment_score'] = sentiment_scores
     
     return df
 
-def createTimeSlices(df, n_bins = 1000):
-    df['time_slice'] = pd.cut(df['timestamp'], bins = n_bins, labels = range(n_bins))
-    return df
+def createTimeBins(df, n_bins = 1000):
+    '''
 
+    '''
+    df['time_slice'] = pd.cut(df['created_utc'], bins = n_bins, labels = range(n_bins))
+    return df
 
 if __name__ == "__main__":
     df1 = pd.read_csv('data/Game7-1stHalf.csv', sep = ',')
     df2 = pd.read_csv('data/Game7-2ndHalf.csv', sep = ',')
     dfs = [df1, df2]
     df = combineDFs(dfs)
-    df = convertUTC(df, 'created_utc')
-    n_slices = 10000
-    df = createTimeSlices(df, n_slices)
     df = calcSentimentScores(df, 'body')
-    df = df[['timestamp', 'created_utc', 'time_slice', 'sentiment_score','body','author','author_flair_css_class']]
-    #looks some people were commenting in the thread days after the game was over. Lets fix that.
-    df = df[(df['timestamp'] =< '2016-06-20 03:00:00')]
-    df.to_csv('data/Game7CombinedWithSentScores'+str(n_slices)+'Slices.csv')
-
-    
+    df.to_csv('data/Game7CombinedWithSentScores.csv')
 
