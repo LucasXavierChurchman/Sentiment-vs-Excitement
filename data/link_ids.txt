@@ -1,3 +1,4 @@
+A record of link ids used to query for the comment threads I used
 
-/r/nba 1st half: 4ovo70a
+/r/nba 1st half: 4ovo70
 /r/nba 2nd half: 4ow6vj
