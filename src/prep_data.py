@@ -58,16 +58,33 @@ def calcSentimentScores(df, comment_text_col_name):
 
 def createTimeBins(df, n_bins = 1000):
     '''
+    Creates bins of time periods we can use to compute statistics based on them
 
+    Parameters: 
+    -----------
+    df: Pandas data frame. Assumes 'created_utc' column exists using unix time format
+    n_bins: number of time periods we want to cut the data into. Higher will give more granular results
+
+    Returns:
+    ----------
+    Pandas DataFrame
     '''
     df['time_slice'] = pd.cut(df['created_utc'], bins = n_bins, labels = range(n_bins))
     return df
 
 if __name__ == "__main__":
-    df1 = pd.read_csv('data/Game7-1stHalf.csv', sep = ',')
-    df2 = pd.read_csv('data/Game7-2ndHalf.csv', sep = ',')
-    dfs = [df1, df2]
-    df = combineDFs(dfs)
-    df = calcSentimentScores(df, 'body')
-    df.to_csv('data/Game7CombinedWithSentScores.csv')
+    df1 = pd.read_csv('data/rNBA1stHalf.csv', sep = ',')
+    df2 = pd.read_csv('data/rNBA2ndHalf.csv', sep = ',')
+    rNBA_dfs = [df1, df2]
+    rNBA_df = combineDFs(rNBA_dfs)
+    rNBA_df = calcSentimentScores(rNBA_df, 'body')
+    rNBA_df.to_csv('data/rNBACombinedScored.csv')
 
+    rCavs_df = pd.read_csv('data/rCavs.csv', sep = ',')
+    rCavs_df = calcSentimentScores(rCavs_df, 'body')
+    rCavs_df.to_csv('data/rCavsScored.csv')
+
+    rDubs_df = pd.read_csv('data/rDubs.csv', sep = ',')
+    rDubs_df = calcSentimentScores(rDubs_df, 'body')
+    rDubs_df.to_csv('data/rDubsScored.csv')
+    
