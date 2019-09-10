@@ -19,17 +19,20 @@ def combineDFs(list_of_dfs):
         df = df.append(data_frame)
     return df
 
-def convertUTC(df, unix_time_col_name):
+def convertUTC(df, unix_time_col_name, new_col_name):
     '''Uses a timestamp column w/ unix/epoch format to create a new one with 'normal' UTC timestamp format
       Parameters: 
     -----------
-    df: dataframe with unix/epoch timestamp
+    df: Pands dataframe with unix/epoch timestamp
+    unix_time_col_name: str, name of unix time column
+    new_col_name: str, name for the new column
 
     Returns
     -------
     Pandas DataFrame
     '''
-    df['timestamp'] = pd.to_datetime(df[unix_time_col_name], unit='s')
+    df.insert(0, new_col_name, pd.to_datetime(df[unix_time_col_name], unit='s'))
+    # df['dt_created_utc'] = pd.to_datetime(df[unix_time_col_name], unit='s')
     return df
 
 def calcSentimentScores(df, comment_text_col_name):
@@ -69,7 +72,7 @@ def createTimeBins(df, n_bins = 1000):
     ----------
     Pandas DataFrame
     '''
-    df['time_slice'] = pd.cut(df['created_utc'], bins = n_bins, labels = range(n_bins))
+    df.insert(1, 'time_slice', pd.cut(df['created_utc'], bins = n_bins, labels = range(n_bins)))
     return df
 
 if __name__ == "__main__":
