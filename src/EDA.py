@@ -36,19 +36,6 @@ for i, df in enumerate(list_dfs):
 #reassin names to the dataframes
 nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df = [list_dfs[x] for x in range(len(list_dfs))]
 
-
-names = ['r/NBA Comments',
-        'r/NBA Comments with Cavaliers Flair',
-        'r/NBA Comments with Warriors Flair',
-        'r/ClevelandCavs comments'
-        'r/Warriors comments']
-top=0.975,
-bottom=0.025,
-left=0.025,
-right=0.975,
-hspace=0.2,
-wspace=0.04
-
 ####### Plot mean and frequency sentiment scores ######
 plt.style.use('ggplot')
 matplotlib.rc('lines', linewidth=3)
@@ -74,12 +61,12 @@ ax2.plot(x, cavs_data['sentiment_score']['mean'], color = 'maroon', alpha = 0.5)
 ax2.plot(x, flair_cavs_data['sentiment_score']['mean'], color = 'red', alpha = 0.5)
 ax2.set_ylim(-2.99,2.99)
 ax2.set_title('Mean Sentiment Score Cavaliers Fan Comments')
-ax2.legend(('Cavs Subreddit','rNBA Cavs Flair'), loc = 'upper left')
+ax2.legend(('Cavs Subreddit','r/NBA Cavs Flair'), loc = 'upper left')
 
 ax5.plot(x, cavs_data['sentiment_score']['size'], color = 'maroon', alpha = 0.5)
 ax5.plot(x, flair_cavs_data['sentiment_score']['size'], color = 'red', alpha = 0.5)
 # ax5.set_title('Comment Count Cavs')
-ax5.legend(('Cavs Subreddit','rNBA Cavs Flair'), loc = 'upper left')
+ax5.legend(('Cavs Subreddit','r/NBA Cavs Flair'), loc = 'upper left')
 
 #Warriors
 dubs_data = dubs_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
@@ -88,11 +75,12 @@ ax3.plot(x, dubs_data['sentiment_score']['mean'], color = 'darkblue', alpha = 0.
 ax3.plot(x, flair_dubs_data['sentiment_score']['mean'], color = 'turquoise', alpha = 0.5)
 ax3.set_ylim(-2.99,2.99)
 ax3.set_title('Mean Sentiment Score Warriors Fan Comments')
+ax3.legend(('Warriors Subreddit','r/NBA Warriors Flair'), loc = 'upper left')
 
 ax6.plot(x, dubs_data['sentiment_score']['size'], color = 'darkblue', alpha = 0.5)
 ax6.plot(x, flair_dubs_data['sentiment_score']['size'], color = 'turquoise', alpha = 0.5)
 # ax6.set_title('Comment Count Warriors')
-ax6.legend(('Warriors Subreddit','rNBA Warriors Flair'), loc = 'upper left')
+ax6.legend(('Warriors Subreddit','r/NBA Warriors Flair'), loc = 'upper left')
 
 plt.grid()
 plt.subplots_adjust(top=0.975,
