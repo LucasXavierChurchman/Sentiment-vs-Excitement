@@ -4,7 +4,7 @@ from afinn import Afinn
 
 af = Afinn(emoticons=True)
 
-def combineDFs(list_of_dfs):
+def combine_dfs(list_of_dfs):
     '''Used in the case multiple datasets need to be combined
     Parameters: 
     -----------
@@ -19,7 +19,7 @@ def combineDFs(list_of_dfs):
         df = df.append(data_frame)
     return df
 
-def convertUTC(df, epoch_time_col_name, new_col_name):
+def convert_utc(df, epoch_time_col_name, new_col_name):
     '''Uses a timestamp column w/ epochformat to create a new one with 'normal' UTC timestamp format
       Parameters: 
     -----------
@@ -35,7 +35,7 @@ def convertUTC(df, epoch_time_col_name, new_col_name):
     # df['dt_created_utc'] = pd.to_datetime(df[epoch_time_col_name], unit='s')
     return df
 
-def calcSentimentScores(df, comment_text_col_name):
+def calc_sentiment_scores(df, comment_text_col_name):
     '''Calculates a list of sentiment scores for each text string in the df specified by text_col_name
     and adds it to the dataframe
 
@@ -59,7 +59,7 @@ def calcSentimentScores(df, comment_text_col_name):
     
     return df
 
-def createTimeBins(df, n_bins = 1000):
+def create_time_bins(df, n_bins = 1000):
     '''
     Creates bins of time periods we can use to compute statistics based on them
 
@@ -75,7 +75,7 @@ def createTimeBins(df, n_bins = 1000):
     df.insert(1, 'time_slice', pd.cut(df['created_utc'], bins = n_bins))#, labels = range(n_bins)))
     return df
 
-def binDfs(listDFs):
+def bin_dfs(listDFs, n_bins = 50):
     '''
     Creates times bins for each dataframe in listDFS
     note: this is function is only really useful in this particular case/structure of data. Also
@@ -90,31 +90,30 @@ def binDfs(listDFs):
     ----------
     list of dataframes
     '''
-    cols_wanted = ['created_utc','sentiment_score','score','author','author_flair_css_class','body']
-    binned_dfs = []
-    for i, df in enumerate(listDFs):
-        df = df[cols_wanted]
-        df = convertUTC(df, 'created_utc', 'created_utc_dt')
+    colsWanted = ['created_utc','sentiment_score','score','author','author_flair_css_class','body']
+    binnedDFs = []
+    for df in listDFs:
+        df = df[colsWanted]
+        df = convert_utc(df, 'created_utc', 'created_utc_dt')
         df = df[(df['created_utc_dt'] >= '2016-06-20 00:00:00') & (df['created_utc_dt'] <= '2016-06-20 02:45:00')]
-        df = createTimeBins(df, n_bins = 50) 
-        binned_dfs.append(df)
+        df = create_time_bins(df, n_bins) 
+        binnedDFs.append(df)
 
-    return [binned_dfs[x] for x in range(len(binned_dfs))]
+    return [binnedDFs[x] for x in range(len(binnedDFs))]
     
-
 if __name__ == "__main__":
     df1 = pd.read_csv('data/rNBA1stHalf.csv', sep = ',')
     df2 = pd.read_csv('data/rNBA2ndHalf.csv', sep = ',')
     rNBA_dfs = [df1, df2]
-    rNBA_df = combineDFs(rNBA_dfs)
-    rNBA_df = calcSentimentScores(rNBA_df, 'body')
+    rNBA_df = combine_dfs(rNBA_dfs)
+    rNBA_df = calc_sentiment_scores(rNBA_df, 'body')
     rNBA_df.to_csv('data/rNBACombinedScored.csv')
 
     rCavs_df = pd.read_csv('data/rCavs.csv', sep = ',')
-    rCavs_df = calcSentimentScores(rCavs_df, 'body')
+    rCavs_df = calc_sentiment_scores(rCavs_df, 'body')
     rCavs_df.to_csv('data/rCavsScored.csv')
 
     rDubs_df = pd.read_csv('data/rDubs.csv', sep = ',')
-    rDubs_df = calcSentimentScores(rDubs_df, 'body')
+    rDubs_df = calc_sentiment_scores(rDubs_df, 'body')
     rDubs_df.to_csv('data/rDubsScored.csv')
     
