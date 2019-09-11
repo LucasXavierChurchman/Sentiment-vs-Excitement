@@ -1,7 +1,7 @@
 import numpy as np 
 import pandas as pd 
+import matplotlib
 import matplotlib.pyplot as plt
-plt.style.use('fivethirtyeight')
 import prep_data
 
 nba_df = pd.read_csv('data/rNBACombinedScored.csv', sep = ',')
@@ -26,7 +26,7 @@ for i, df in enumerate(list_dfs):
     df = df[(df['created_utc_dt'] >= '2016-06-20 00:00:00') & (df['created_utc_dt'] <= '2016-06-20 02:45:00')]
 
     #create time bins. 330 bins will make slices of roughly 30 seconds
-    df = prep_data.createTimeBins(df, n_bins = 100) 
+    df = prep_data.createTimeBins(df, n_bins = 50) 
 
     #printing first and last rows to make sure things look ok
     # print(i,'-------------------------------------\n', df[::df.shape[0]-1] )
@@ -44,15 +44,36 @@ names = ['r/NBA Comments',
         'r/Warriors comments']
 
 
-#Plot mean sentiment scores
-fig, axs = plt.subplots(3,2,figsize=(16, 30))
-data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
-x = np.linspace(0, data.shape[0], num = data.shape[0])
-axs[0,0].plot(x, data['sentiment_score']['mean'], color = 'black', alpha = 0.5)
-axs[0,0].set_ylim(-3,3)
-plt.grid()
-axs[0,1].hist(data['sentiment_score']['mean'], color = 'black', bins = 100, alpha = 0.5)
-# axs[0].set_title('All /r/NBA comments')
+####### Plot mean sentiment scores ######
+plt.style.use('seaborn-darkgrid')
+matplotlib.rc('lines', linewidth=3)
+fig, ((ax1, ax2, ax3),(ax4,ax5,ax6)) = plt.subplots(2,3,figsize=(20, 8), gridspec_kw={'hspace': 0})
+
+nba_data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
+ax1.plot(x, nba_data['sentiment_score']['mean'], color = 'orangered', alpha = 0.5)
+ax1.set_ylim(-2.99,2.99)
+ax1.set_title('All Comments (/r/nba)')
 plt.grid()
 
+cavs_data = cavs_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+flair_cavs_data = flair_cavs_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+ax2.plot(x, cavs_data['sentiment_score']['mean'], color = 'maroon', alpha = 0.5)
+ax2.plot(x, flair_cavs_data['sentiment_score']['mean'], color = 'red', alpha = 0.5)
+ax2.set_ylim(-2.99,2.99)
+ax2.set_title('Cavaliers Fan Comments')
+
+dubs_data = dubs_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+flair_dubs_data = flair_dubs_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+ax3.plot(x, dubs_data['sentiment_score']['mean'], color = 'darkblue', alpha = 0.5)
+ax3.plot(x, flair_dubs_data['sentiment_score']['mean'], color = 'blue', alpha = 0.5)
+ax3.set_ylim(-2.99,2.99)
+ax3.set_title('Warriors Fan Comments')
+
+
+for ax in fig.get_axes():
+    ax.label_outer()
+
 plt.show()
+
+# ax2.hist(data['sentiment_score']['mean'], color = 'orangered', bins = 50, alpha = 0.5)
