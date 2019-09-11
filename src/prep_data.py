@@ -75,6 +75,33 @@ def createTimeBins(df, n_bins = 1000):
     df.insert(1, 'time_slice', pd.cut(df['created_utc'], bins = n_bins))#, labels = range(n_bins)))
     return df
 
+def binDfs(listDFs):
+    '''
+    Creates times bins for each dataframe in listDFS
+    note: this is function is only really useful in this particular case/structure of data. Also
+    reduces columns which should be another function. It works for this particular project so 
+    we'll roll with it.
+
+    Parameters
+    -----------
+    listDFs: list of dataframes
+
+    Returns
+    ----------
+    list of dataframes
+    '''
+    cols_wanted = ['created_utc','sentiment_score','score','author','author_flair_css_class','body']
+    binned_dfs = []
+    for i, df in enumerate(listDFs):
+        df = df[cols_wanted]
+        df = convertUTC(df, 'created_utc', 'created_utc_dt')
+        df = df[(df['created_utc_dt'] >= '2016-06-20 00:00:00') & (df['created_utc_dt'] <= '2016-06-20 02:45:00')]
+        df = createTimeBins(df, n_bins = 50) 
+        binned_dfs.append(df)
+
+    return [binned_dfs[x] for x in range(len(binned_dfs))]
+    
+
 if __name__ == "__main__":
     df1 = pd.read_csv('data/rNBA1stHalf.csv', sep = ',')
     df2 = pd.read_csv('data/rNBA2ndHalf.csv', sep = ',')
