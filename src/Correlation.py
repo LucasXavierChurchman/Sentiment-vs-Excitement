@@ -5,17 +5,18 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import seaborn as sns
 plt.style.use('seaborn-darkgrid')
+bins = 50
 
-nba_df = pd.read_csv('data/rNBACombinedScored.csv', sep = ',', low_memory = False)
-cavs_df = pd.read_csv('data/rCavsScored.csv', sep = ',')
-dubs_df = pd.read_csv('data/rDubsScored.csv', sep = ',')
+nba_df = pd.read_csv('data/rNBACombinedScoredCustom.csv', sep = ',', low_memory = False)
+cavs_df = pd.read_csv('data/rCavsScoredCustom.csv', sep = ',')
+dubs_df = pd.read_csv('data/rDubsScoredCustom.csv', sep = ',')
 
 #Create data frames for comments from the /r/nba thread by fans of either team based on their flair
 flair_cavs_df = nba_df[nba_df['author_flair_css_class'].str.contains('Cavaliers', na = False)]
 flair_dubs_df = nba_df[nba_df['author_flair_css_class'].str.contains('Warriors', na = False)]
 
 list_dfs = [nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df]
-bins = 100
+
 nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df = PrepData.bin_dfs(list_dfs, bins)
 
 nba_data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
@@ -40,7 +41,10 @@ d = {'nba_sentiment': nba_data['sentiment_score']['mean'].values,
 
 df = pd.DataFrame(data = d)
 
-fig, ax = plt.subplots(figsize=(10,10))
-sns.pairplot(df)
+plt.figure(figsize=(5,5))
+sns.heatmap(df.corr(),
+            vmin=-1,
+            cmap='magma',
+            annot=True)
 
 plt.show()

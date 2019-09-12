@@ -71,5 +71,5 @@ def hyp_test():
     # print(stats.ttest_ind(default_data['sentiment_score']['mean'], custom_data['sentiment_score']['mean']))
 
 if __name__ == "__main__":
-    # plot_sentiment()
+    plot_sentiment()
     hyp_test()

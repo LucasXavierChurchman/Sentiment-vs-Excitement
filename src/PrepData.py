@@ -1,3 +1,7 @@
+'''
+Class with functions to help organize, combine, generate data
+'''
+
 import numpy as np 
 import pandas as pd 
 from afinn import Afinn
