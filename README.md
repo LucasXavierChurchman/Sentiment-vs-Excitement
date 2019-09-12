@@ -39,7 +39,7 @@ Thanks to social media platforms and their APIs it's easy to collect data about 
  ## Analysis Part 1
  
 
-The main goal of this analyis was to look at trends of comment sentiment and frequency. Simple line graphs are perfect for something like this.
+The main goal of this analyis was to look at trends of comment sentiment and frequency. Simple line graphs are perfect for something like this (opening these images in a new tab helps read them without loss of visual information/granularity)
 
-[](images/MeanScoreCommentDensityDefault.png)
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreCommentDensityDefault.png "main")
 
