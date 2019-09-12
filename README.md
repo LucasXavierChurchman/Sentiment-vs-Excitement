@@ -13,7 +13,7 @@ Thanks to social media platforms and their APIs it's easy to collect data about 
 
   1) Structure: the comment-board design of reddit is much less chaotic than Twitter. Also, determining a commenters' team    allegiance is much easier thanks to user flair and teams having individual subreddits which was critical for this analysis
   
-  2) The team at [https://pushshift.io/](pushshift.io) has a [https://files.pushshift.io/reddit/comments/](public database) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments](Google Big Query). Thanks to this, a simple query using the comment thread link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. From there, further filtering was done with Pandas.
+  2) The team at pushshift.io has a [public database](https://files.pushshift.io/reddit/comments/) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [Google Big Query](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments). Thanks to this, a simple query using the comment thread link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. From there, further filtering was done with Pandas.
   
   3) I spend a lot (too much) time on reddit so the platform is very familiar.
  
