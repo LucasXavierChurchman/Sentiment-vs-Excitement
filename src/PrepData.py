@@ -1,8 +1,10 @@
 import numpy as np 
 import pandas as pd 
 from afinn import Afinn
+from afinn_custom import Afinn as Afinn_Custom
 
 af = Afinn(emoticons=True)
+af_c = Afinn_Custom(emoticons=True)
 
 def combine_dfs(list_of_dfs):
     '''Used in the case multiple datasets need to be combined
@@ -56,7 +58,28 @@ def calc_sentiment_scores(df, comment_text_col_name):
             sentiment_scores.append(np.nan)
 
     df['sentiment_score'] = sentiment_scores
-    
+    return df
+
+def calc_sentiment_scores_custom(df, comment_text_col_name):
+    '''
+    Same as function above but uses custom Afinn library with different lexicon
+    Parameters:
+    ----------
+    df: pandas dataframe with comment column
+    text_col_name: string, name of the column with text strings to be scored
+
+    Returns
+    -------
+    Pandas DataFrame
+    '''
+    sentiment_scores = []
+    for comment in df[comment_text_col_name]:
+        try:
+            sentiment_scores.append(af_c.score(comment))
+        except:
+            sentiment_scores.append(np.nan)
+
+    df['sentiment_score'] = sentiment_scores
     return df
 
 def create_time_bins(df, n_bins = 1000):
@@ -108,12 +131,24 @@ if __name__ == "__main__":
     rNBA_df = combine_dfs(rNBA_dfs)
     rNBA_df = calc_sentiment_scores(rNBA_df, 'body')
     rNBA_df.to_csv('data/rNBACombinedScored.csv')
+    #generate with customized lexicon
+    rNBA_df = combine_dfs(rNBA_dfs)
+    rNBA_df_custom = calc_sentiment_scores_custom(rNBA_df, 'body')
+    rNBA_df_custom.to_csv('data/rNBACombinedScoredCustom.csv')
+
 
     rCavs_df = pd.read_csv('data/rCavs.csv', sep = ',')
     rCavs_df = calc_sentiment_scores(rCavs_df, 'body')
     rCavs_df.to_csv('data/rCavsScored.csv')
+    #generate with customized lexicon
+    rCavs_df_custom = calc_sentiment_scores_custom(rCavs_df, 'body')
+    rCavs_df_custom.to_csv('data/rCavsScoredCustom.csv')
+
 
     rDubs_df = pd.read_csv('data/rDubs.csv', sep = ',')
     rDubs_df = calc_sentiment_scores(rDubs_df, 'body')
     rDubs_df.to_csv('data/rDubsScored.csv')
+    #generate with customized lexicon
+    rDubs_df_custom = calc_sentiment_scores_custom(rDubs_df, 'body')
+    rDubs_df_custom.to_csv('data/rDubsScoredCustom.csv')
     
