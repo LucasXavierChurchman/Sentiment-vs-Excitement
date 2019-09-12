@@ -39,14 +39,23 @@ Thanks to social media platforms and their APIs it's easy to collect data about 
  ## Analysis Part 1
  
 
-The main goal of this analyis was to look at trends of comment sentiment and frequency. Simple line graphs are perfect for something like this (opening these images in a new tab helps read them without loss of visual information/granularity)
+The main goal of this analyis was to look at trends of comment sentiment and frequency. Simple line plots of these quantaties over time are perfect for something like this.
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreCommentDensityDefault.png "main")
 
 Overall, there is an overall negative sentiment in these comments (but keep this in mind for Part 2). All of the density plots show an increase in comments over the course of the game and a giant spike towards the end. This makes makes sense with how dramatic of a finish the game had. There appears to be some degree of correlation between Cavs fans in their own subreddit and in the r/NBA thread in terms of both sentiment and comment density. It's interesting that Warriors fans didnt demonstrate a similar pattern.
+
+Originally one of the main goals was to see if significant in-game events could be identified in these plots. Because scoring data only records in game timestamps and not "real world" time, this wasn't possible for the scope of this analysis. However, examining the raw data, plays like ["the block"](https://youtu.be/wgVOgGLtPtc?t=177) that happens around time = 45 can be identified by cross-referencing the binned data and the plot.
 
 Although it doesn't result in much more insight, here is all of the plots for each sentiment and density overlaid one another.
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreOverlap.png "overlap scores")
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityOverlap.png "overlap densities")
 
+To the quantify correlations that appear to show in these plots, a correlation heatmap was generated
+
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/Correlation.png "heatmp")
+
+This might give the best insight of anything done in this analysis. 
+* There's a clear negative correlation between density and sentiment illustrated by the distinct quadrants of orange/yellow and purple/pink.
+* There's higher correlation of sentiment between r/NBA comments and comments from Cavs fans (based on subreddit and flair) than for Warriors fans. This might indicate more neutral fans were supporting the Cavaliers, which from anecdotal evidence was the case.

@@ -19,11 +19,13 @@ list_dfs = [nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df]
 
 nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df = PrepData.bin_dfs(list_dfs, bins)
 
+
 matplotlib.rc('lines', linewidth=3)
 fig, ((ax1, ax2, ax3),(ax4, ax5, ax6)) = plt.subplots(2,3,figsize=(15, 4))
 
 #rNba
 nba_data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
+nba_data.to_csv('data/rNBAbinned.csv')
 x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
 ax1.plot(x, nba_data['sentiment_score']['mean'], color = 'orangered', alpha = 0.5)
 ax1.set_ylim(-3,3)

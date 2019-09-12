@@ -41,10 +41,12 @@ d = {'nba_sentiment': nba_data['sentiment_score']['mean'].values,
 
 df = pd.DataFrame(data = d)
 
+
 plt.figure(figsize=(5,5))
+plt.title('Sentiment and Density Correlation Heatmap')
 sns.heatmap(df.corr(),
             vmin=-1,
-            cmap='magma',
+            cmap='magma', #https://www.youtube.com/watch?v=yVo1S52xdpI
             annot=True)
 
 plt.show()

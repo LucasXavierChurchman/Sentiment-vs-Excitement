@@ -86,7 +86,7 @@ def calc_sentiment_scores_custom(df, comment_text_col_name):
     df['sentiment_score'] = sentiment_scores
     return df
 
-def create_time_bins(df, n_bins = 1000):
+def create_time_bins(df, n_bins = 50):
     '''
     Creates bins of time periods we can use to compute statistics based on them
 
