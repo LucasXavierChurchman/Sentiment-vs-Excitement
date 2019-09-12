@@ -1,3 +1,7 @@
-# Capstone1
+# Senitment vs Excitement
+### An analysis of reddit comments during Game 7 of the 2016 NBA finals
 
-An analysis of reddit comments during Game 7 of the 2016 NBA finals
+
+
+## Motivation:
+----------
