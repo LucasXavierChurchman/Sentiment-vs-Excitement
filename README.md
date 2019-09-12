@@ -15,6 +15,12 @@ Thanks to social media platforms and their APIs it's easy to collect data about 
   
   2) The team at [https://pushshift.io/](pushshift.io) has a [https://files.pushshift.io/reddit/comments/](public database) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments](Google Big Query). Thanks to this, a simple query using the comment thread link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. From there, further filtering was done with Pandas.
   
-  3) I spend a lot (too much) time on reddit so the platform was very familiar.
-  
+  3) I spend a lot (too much) time on reddit so the platform is very familiar.
+ 
+ Five datasets were created and used from the game 7 "game threads" (threads posted by moderators for users to live-comment on games as they happen)
+ * All comments from the main r/NBA game thread
+ * All comments from the r/Cavaliers game thread
+ * All comments from the r/Warriors game thread
+ * Comments from the r/NBA game thread with Cavaliers flair (a user selected icon to indicate team allegiance)
+ * Comments from the r/NBA game thread with Warriors flair
  
