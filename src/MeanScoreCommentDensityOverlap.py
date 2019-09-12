@@ -27,7 +27,7 @@ flair_dubs_data = flair_dubs_df[['time_slice','sentiment_score']].groupby('time_
 
 def plot_sentiment():
     matplotlib.rc('lines', linewidth=3)
-    fig, ax = plt.subplots(figsize=(100, 8))
+    fig, ax = plt.subplots(figsize=(15, 4))
 
     x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
     ax.plot(x, nba_data['sentiment_score']['mean'], color = 'orangered', alpha = 0.5)
@@ -51,7 +51,7 @@ def plot_sentiment():
 
 def plot_density():
     matplotlib.rc('lines', linewidth=3)
-    fig, ax = plt.subplots(figsize=(100, 8))
+    fig, ax = plt.subplots(figsize=(15, 4))
 
     x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
     # ax.plot(x, nba_data['sentiment_score']['size'], color = 'orangered', alpha = 0.5) # skews the plot

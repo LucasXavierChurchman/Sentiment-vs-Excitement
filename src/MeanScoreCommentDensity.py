@@ -20,7 +20,7 @@ list_dfs = [nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df]
 nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df = PrepData.bin_dfs(list_dfs, bins)
 
 matplotlib.rc('lines', linewidth=3)
-fig, ((ax1, ax2, ax3),(ax4, ax5, ax6)) = plt.subplots(2,3,figsize=(30, 8))
+fig, ((ax1, ax2, ax3),(ax4, ax5, ax6)) = plt.subplots(2,3,figsize=(15, 4))
 
 #rNba
 nba_data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
@@ -67,6 +67,7 @@ ax6.set_title('Warriors Comment Density (comments / 3.3 minute period)')
 ax6.legend(('r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
 plt.grid()
+
 plt.subplots_adjust(top=0.975,
                     bottom=0.025,
                     left=0.025,
