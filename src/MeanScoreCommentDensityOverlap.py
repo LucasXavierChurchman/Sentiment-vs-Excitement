@@ -5,6 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import PrepData
 plt.style.use('seaborn-darkgrid')
+bins = 50
 
 nba_df = pd.read_csv('data/rNBACombinedScored.csv', sep = ',', low_memory = False)
 cavs_df = pd.read_csv('data/rCavsScored.csv', sep = ',')
@@ -15,7 +16,7 @@ flair_cavs_df = nba_df[nba_df['author_flair_css_class'].str.contains('Cavaliers'
 flair_dubs_df = nba_df[nba_df['author_flair_css_class'].str.contains('Warriors', na = False)]
 
 list_dfs = [nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df]
-bins = 50
+
 nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df = PrepData.bin_dfs(list_dfs, bins)
 
 nba_data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])

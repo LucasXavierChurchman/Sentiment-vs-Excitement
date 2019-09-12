@@ -18,7 +18,7 @@ def combine_dfs(list_of_dfs):
     '''
     df = list_of_dfs[0]
     for data_frame in list_of_dfs[1:]:
-        df = df.append(data_frame)
+        df = df.append(data_frame).sort_values(['created_utc'], ascending = True)
     return df
 
 def convert_utc(df, epoch_time_col_name, new_col_name):
