@@ -68,7 +68,7 @@ def hyp_test():
     else:
         print('\nFail to reject null hypothesis')
 
-    print(stats.ttest_ind(default_data['sentiment_score']['mean'], custom_data['sentiment_score']['mean']))
+    # print(stats.ttest_ind(default_data['sentiment_score']['mean'], custom_data['sentiment_score']['mean']))
 
 if __name__ == "__main__":
     # plot_sentiment()
