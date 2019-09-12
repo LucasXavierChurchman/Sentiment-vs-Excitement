@@ -43,3 +43,10 @@ The main goal of this analyis was to look at trends of comment sentiment and fre
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreCommentDensityDefault.png "main")
 
+Overall, there is an overall negative sentiment in these comments (but keep this in mind for Part 2). All of the density plots show an increase in comments over the course of the game and a giant spike towards the end. This makes makes sense with how dramatic of a finish the game had. There appears to be some degree of correlation between Cavs fans in their own subreddit and in the r/NBA thread in terms of both sentiment and comment density. It's interesting that Warriors fans didnt demonstrate a similar pattern.
+
+Although it doesn't result in much more insight, here is all of the plots for each sentiment and density overlaid one another.
+
+
+
+## 
