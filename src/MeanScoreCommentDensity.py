@@ -28,11 +28,11 @@ x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
 ax1.plot(x, nba_data['sentiment_score']['mean'], color = 'orangered', alpha = 0.5)
 ax1.set_ylim(-3,3)
 ax1.hlines(0, 0, bins, linestyles = 'dashed')
-ax1.set_title('r/NBA Sentiment')
+ax1.set_title('r/NBA Sentiment v Time')
 ax1.legend(('r/NBA',), loc = 'upper left')
 
 ax4.plot(x, nba_data['sentiment_score']['size'], color = 'orangered', alpha = 0.5)
-ax4.set_title('r/NBA Comment Density')
+ax4.set_title('r/NBA Comment Density (comments / 3.3 minute period)')
 ax4.legend(('r/NBA',), loc = 'upper left')
 plt.grid()
 
@@ -43,12 +43,12 @@ ax2.plot(x, cavs_data['sentiment_score']['mean'], color = 'maroon', alpha = 0.5)
 ax2.plot(x, flair_cavs_data['sentiment_score']['mean'], color = 'red', alpha = 0.5)
 ax2.set_ylim(-3,3)
 ax2.hlines(0, 0, bins, linestyles = 'dashed')
-ax2.set_title('Cavaliers Sentiment')
+ax2.set_title('Cavaliers Sentiment v Time')
 ax2.legend(('r/ClevelandCavs','r/NBA Cavs Flair'), loc = 'upper left')
 
 ax5.plot(x, cavs_data['sentiment_score']['size'], color = 'maroon', alpha = 0.5)
 ax5.plot(x, flair_cavs_data['sentiment_score']['size'], color = 'red', alpha = 0.5)
-ax5.set_title('Cavaliers Comment Density')
+ax5.set_title('Cavaliers Comment Density (comments / 3.3 minute period')
 ax5.legend(('r/ClevelandCavs','r/NBA Cavs Flair'), loc = 'upper left')
 
 #Warriors
@@ -58,12 +58,12 @@ ax3.plot(x, dubs_data['sentiment_score']['mean'], color = 'darkblue', alpha = 0.
 ax3.plot(x, flair_dubs_data['sentiment_score']['mean'], color = 'turquoise', alpha = 0.5)
 ax3.set_ylim(-3,3)
 ax3.hlines(0, 0, bins, linestyles = 'dashed')
-ax3.set_title('Warriors Sentiment')
+ax3.set_title('Warriors Sentiment v Time')
 ax3.legend(('r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
 ax6.plot(x, dubs_data['sentiment_score']['size'], color = 'darkblue', alpha = 0.5)
 ax6.plot(x, flair_dubs_data['sentiment_score']['size'], color = 'turquoise', alpha = 0.5)
-ax6.set_title('Warriors Comment Density')
+ax6.set_title('Warriors Comment Density (comments / 3.3 minute period)')
 ax6.legend(('r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
 plt.grid()

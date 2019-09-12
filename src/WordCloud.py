@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from itertools import islice
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+plt.style.use('seaborn-darkgrid')
 
 def take(n, iterable):
     "Return first n items of the iterable as a list"
