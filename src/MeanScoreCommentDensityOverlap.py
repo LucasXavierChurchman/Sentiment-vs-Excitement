@@ -38,7 +38,7 @@ def plot_sentiment():
 
     ax.set_ylim(-4,4)
     ax.hlines(0, 0, bins, linestyles = 'dashed')
-    ax.set_title('Sentiment')
+    ax.set_title('Sentiment v Time')
     ax.legend(('r/NBA','r/ClevelandCavs','r/NBA Cavs Flair','r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
     plt.subplots_adjust(top=0.975,
@@ -60,17 +60,17 @@ def plot_density():
     ax.plot(x, dubs_data['sentiment_score']['size'], color = 'darkblue', alpha = 0.5)
     ax.plot(x, flair_dubs_data['sentiment_score']['size'], color = 'turquoise', alpha = 0.5)
 
-    ax.set_title('Comment Density')
+    ax.set_title('Comment Density (comments / 3.3 minute period)')
     ax.legend(('r/ClevelandCavs','r/NBA Cavs Flair','r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
-    plt.subplots_adjust(top=0.975,
-                        bottom=0.025,
+    plt.subplots_adjust(top=0.94,
+                        bottom=0.055,
                         left=0.025,
-                        right=0.975,
+                        right=0.995,
                         hspace=0.07,
                         wspace=0.05)
     plt.show()
 
 if __name__ == "__main__":
-    # plot_sentiment()
-    plot_density()
+    plot_sentiment()
+    # plot_density()

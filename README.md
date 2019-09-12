@@ -47,6 +47,6 @@ Overall, there is an overall negative sentiment in these comments (but keep this
 
 Although it doesn't result in much more insight, here is all of the plots for each sentiment and density overlaid one another.
 
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreOverlap.png "overlap scores")
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityOverlap.png "overlap densities")
 
-
-## 
