@@ -1,13 +1,13 @@
 # Senitment vs Excitement
 
-# Table of Contents
+### Analyzing Real-Time Reactions to Game 7 of the 2016 NBA Finals
+##### By Lucas Xavier Churchman
+
+## Table of Contents
 1. [Motivation](#motivation)
 2. [Data](#data)
 4. [Analysis](#analysis)
 5. [Takeaways](#takeaways)
-
-### Analyzing Real-Time Reactions to Game 7 of the 2016 NBA Finals
-##### By Lucas Xavier Churchman
 
 ## Motivation:
 To most NBA fans, the 2016 Finals was one of the most legendary playoff series of all time. The Cleveland Cavaliers, led by the greatest player on the planet, Lebron James, squared off against defending champions and regular season record setting Golden State Warriors, starring soon-to-be back-to-back league MVP Steph Curry. It's hard to overstate the hype going into the series and it end up delivering in every way. The underdog Cavs eventually won the series in 7 games after being down 3-1, a first for an NBA final series. Fans everywhere went wild. 
@@ -92,3 +92,12 @@ The point here is that our sentiment analysis fails to account for one very impo
 Although this analysis evolved away from what it originally set out to discover, plenty else was discovered in its place. Predicted trends of comment density between different indicators of fandom appeared in the plots and calculations. The same goes for sentiment although less-so. As a bonus, some degree of an inverse correlation between comment density and sentiment was shown, but the reasons for this are unclear.
 
 Furthermore, the 2nd part of the analysis displayed just how important context is for analyzing text, especially when gauging sentiment. Instant, reactionary comments on social media are fundamentally different from well thought out response to, say, an email survey or product review. This opens the door for future projects that take this into account, possibly utilizing this knowledge of some inverse correlation between sentiment and comment density.
+
+## Credits and Acknowledgements
+
+* Reddit user /u/Stuck_In_the_Matrix and the rest of the Pushshift.io team for their reddit comment database
+* Reddit user /u/fhoffa for uploading this database to Big Query
+* My friend Tim Howard for reminding of the word 'anecdotal' when I couldn't think of it
+* The creators of the `Afinn()` library, along with the requested citation in their repo's readme:
+
+ Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
