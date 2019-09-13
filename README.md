@@ -3,9 +3,8 @@
 # Table of Contents
 1. [Motivation](#motivation)
 2. [Data](#data)
-4. [Analysis Part 1](#Analysis Part 1: Sentiment and Density)
-5. [Analysis Part 2](#Analysis Part 1: The F-Bomb)
-6. [Takeaways](#takeaways)
+4. [Analysis](#analysis)
+5. [Takeaways](#takeaways)
 
 ### Analyzing Real-Time Reactions to Game 7 of the 2016 NBA Finals
 ##### By Lucas Xavier Churchman
@@ -46,8 +45,8 @@ For this project, using user activity data from either Reddit and Twitter was co
  
  For most of this analysis, 50 bins were used, translating to roughly 3.3 minutes per slice (2hr 45min = 9900 secs, 9900sec/50 bins = 198 secs/bin = 3.3 min/bin). This number, 50, was used because it was easy to remember while working between multiple scripts at once and translated to nice, digestible plots. 3.3 minutes might not be the friendliest time period to remember, however several reasonable numbers of bins, translating to slices of time ranging from 1 to 5 minutes, were tested and the results were largely the same.
 
- 
- ## Analysis Part 1: Sentiment and Density
+ ## Analysis
+ ### Part 1: Sentiment and Density
  
 With the data prepared, line plots were simple enough to generate but give a perfect visual idea of what's of interest.
 
@@ -71,8 +70,7 @@ To the quantify correlations that appear to show up in these plots, a correlatio
 * There's a clear negative correlation between density and sentiment illustrated by the distinct quadrants of orange/yellow vs. purple/pink.
 * There's higher correlation in sentiment between r/NBA comments and comments from Cavs fans (based on subreddit and flair) than for Warriors fans. This might indicate more neutral fans were supporting the Cavaliers, which from anecdotal evidence was the case in reality.
 
-
-## Analysis Part 2: The F-Bomb
+### Part 2: The F-Bomb
 
 The overall negative sentiment was alluded to before. This was obvious at first glance of the dataset of comments. To better demonstrate this, a word cloud was generated from a list of all the words found in the comments that are scored in `Afinn()`. The bigger the word, the more it appeard in comments
 
