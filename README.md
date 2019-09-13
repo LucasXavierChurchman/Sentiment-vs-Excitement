@@ -78,5 +78,5 @@ Luckily, editing python libraries is very easy. A copy of the library was made a
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityCustomAfinn.png "defaultvcustomafinn")
 
-A hypothesis test for the difference in means on this data was performed, giving **p-val = 0.003**, which is significant at any reasonable alpha value and degrees of freedom
+A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.003**, which is significant at any reasonable alpha value and degrees of freedom
 
