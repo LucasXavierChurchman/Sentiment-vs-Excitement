@@ -61,15 +61,13 @@ def hyp_test():
     print('Mean using default dictionary: \t', def_mean)
     print('Mean using custom dictionary: \t', cus_mean)
     print('test statistic: \t\t', t)
-    # print('p-value: \t\t\t', '%f' % (pval))
-    print('p-value: \t\t\t', pval)
+    print('p-value: \t\t\t', '%f' % (pval))
 
     if pval < alpha:
         print('\nReject null hypothesis')
     else:
         print('\nFail to reject null hypothesis')
 
-    # print(stats.ttest_ind(default_data['sentiment_score']['mean'], custom_data['sentiment_score']['mean']))
 
 if __name__ == "__main__":
     hyp_test()
