@@ -83,7 +83,7 @@ Luckily, editing python libraries is very easy. A copy of the library was made a
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreCustomAfinn.png "defaultvcustomafinn")
 
-A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.000002**, which is significant at any reasonable alpha value.
+The mean sentiment increased from -0.21 to 0.11 for our 45,269 comment. A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.000002**, which is significant at any reasonable alpha value.
 
 These results are dramatic and should be taken with a grain of salt. Before editing the lexicon, an "f-yeah LeBron!" in real life would be considered a positive reaction, but that comment would get scored as a -4. On the other hand, an "f-you Lebron!" is a negative reaction and really should be scored as a -4. However, both these examples with our new lexicon would be scored 0.
 
