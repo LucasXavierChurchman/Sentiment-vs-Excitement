@@ -3,6 +3,8 @@
 ### Analyzing Real-Time Reactions to Game 7 of the 2016 NBA Finals
 ##### By Lucas Xavier Churchman
 
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/Banner.png "banner")
+
 ## Table of Contents
 1. [Motivation](#motivation)
 2. [Data](#data)
