@@ -1,4 +1,4 @@
-# Senitment vs Excitement
+# Sentiment vs Excitement
 
 ### Analyzing Real-Time Reactions to Game 7 of the 2016 NBA Finals
 ##### By Lucas Xavier Churchman
