@@ -68,8 +68,8 @@ To the quantify correlations that appear to show up in these plots, a correlatio
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/Correlation.png "heatmap")
 
-* There's a clear negative correlation between density and sentiment illustrated by the distinct quadrants of orange/yellow vs. purple/pink.
-* There's higher correlation in sentiment between r/NBA comments and comments from Cavs fans (based on subreddit and flair) than for Warriors fans. This might indicate more neutral fans were supporting the Cavaliers, which from anecdotal evidence was the case in reality.
+* There's a clear postive correlations for sentiments and densities with themseleves and negative correlations between densities and sentiments, illustrated by the distinct quadrants of orange/yellow vs. purple/pink.
+* Higher correlation in sentiment between r/NBA comments and comments from Cavs fans (based on subreddit and flair) than for Warriors fans. This might indicate more neutral fans were supporting the Cavaliers, which from anecdotal evidence was the case in reality.
 
 ### Part 2: The F-Bomb
 
