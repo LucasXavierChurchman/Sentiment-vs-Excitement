@@ -8,6 +8,7 @@
 2. [Data](#data)
 4. [Analysis](#analysis)
 5. [Takeaways](#takeaways)
+6. [Credits and Acknowledgements](#credits-and-acknowledgements)
 
 ## Motivation:
 To most NBA fans, the 2016 Finals was one of the most legendary playoff series of all time. The Cleveland Cavaliers, led by the greatest player on the planet, Lebron James, squared off against defending champions and regular season record setting Golden State Warriors, starring soon-to-be back-to-back league MVP Steph Curry. It's hard to overstate the hype going into the series and it end up delivering in every way. The underdog Cavs eventually won the series in 7 games after being down 3-1, a first for an NBA final series. Fans everywhere went wild. 
@@ -97,7 +98,7 @@ Furthermore, the 2nd part of the analysis displayed just how important context i
 
 * Reddit user /u/Stuck_In_the_Matrix and the rest of the Pushshift.io team for their Reddit comment database
 * Reddit user /u/fhoffa for uploading this database to Google Big Query
-* My friend, Tim Howard, for reminding of the word 'anecdotal' when I couldn't remember it
+* My friend, PhD Candidate Tim Howard, for reminding of the word 'anecdotal' when I couldn't remember it
 * The creators of the `Afinn()` library, along with the requested citation in their repo's readme:
 
  Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
