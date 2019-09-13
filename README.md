@@ -53,7 +53,7 @@ For this project, using comments/tweets from either Reddit or Twitter were consi
  
 With the data prepared, line plots were simple enough to generate but give a perfect visual idea of what's of interest.
 
-![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreCommentDensityDefault.png "main")
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreCommentDensityDefault.png "main")
 
 Overall, there is an overall negative trend of sentiment in these comments (keep this in mind for Part 2). All of the density plots show an increase in comment frequency over the course of the game and a giant spike towards the end, which makes sense with how dramatic of a finish the game had. There appears to be a moderate degree of correlation between Cavs fans in their own subreddit and flaired fans in the r/NBA thread both in terms of sentiment and comment density. It's interesting that Warriors fans didnt demonstrate a similar pattern.
 
@@ -61,7 +61,7 @@ Originally one of the main goals of this analysis was to see if significant in-g
 
 Although it doesn't result in much more insight, here are all of the plots for both sentiment and density overlaid one another.
 
-![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/MeanScoreOverlap.png "overlap scores")
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreOverlap.png "overlap scores")
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityOverlap.png "overlap densities")
 
 
@@ -83,7 +83,7 @@ Yikes. The 'f-bomb' and most of it's variations have a score of -4, and the volu
 
 Luckily, editing python libraries is very easy. A copy of the library was made and the two biggest words from this word cloud were removed from the scoring lexicon. This is how that simple edit changed the look of our sentiment plot
 
-![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityCustomAfinn.png "defaultvcustomafinn")
+![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreCustomAfinn.png "defaultvcustomafinn")
 
 A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.000002**, which is significant at any reasonable alpha value.
 
