@@ -22,7 +22,7 @@ Let's try and find out.
 ## Data:
 For this project, using comments/tweets from either Reddit or Twitter was considered. In the end, Reddit comments were used for a few reasons.
 
-  * Structure: the comment-board design of reddit is easier to follow than Twitter's handing of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis
+  * Structure: the comment-board design of reddit is easier to follow than Twitter's handling of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis
   
   * The team at pushshift.io has a [public database](https://files.pushshift.io/reddit/comments/) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [Google Big Query](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments). Thanks to this, a simple query using a thread's link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. 
   
