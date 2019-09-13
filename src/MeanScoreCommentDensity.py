@@ -50,7 +50,7 @@ ax2.legend(('r/ClevelandCavs','r/NBA Cavs Flair'), loc = 'upper left')
 
 ax5.plot(x, cavs_data['sentiment_score']['size'], color = 'maroon', alpha = 0.5)
 ax5.plot(x, flair_cavs_data['sentiment_score']['size'], color = 'red', alpha = 0.5)
-ax5.set_title('Cavaliers Comment Density (comments / 3.3 minute period')
+ax5.set_title('Cavaliers Comment Density (comments / 3.3 minute period)')
 ax5.legend(('r/ClevelandCavs','r/NBA Cavs Flair'), loc = 'upper left')
 
 #Warriors

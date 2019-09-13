@@ -68,10 +68,10 @@ def calc_sentiment_scores_custom(df, comment_text_col_name):
     '''
     Same as function above but uses custom Afinn library with different lexicon
     Parameters:
-    ----------
-    df: pandas dataframe with comment column
-    text_col_name: string, name of the column with text strings to be scored
-
+    ----------heatmap
+    df: pandas dataframe with comment cheatmapolumn
+    text_col_name: string, name of the heatmapcolumn with text strings to be scored
+heatmap
     Returns
     -------
     Pandas DataFrame

@@ -51,6 +51,8 @@ def hyp_test():
     cus_mean = np.mean(custom_data['sentiment_score']['mean'])
     cus_sd = np.std(custom_data['sentiment_score']['mean'])
     cus_n = custom_data['sentiment_score']['mean'].size
+
+    print(def_n)
     
     se = np.sqrt((def_sd**2/def_n)+(cus_sd**2/cus_n))
 
@@ -59,6 +61,7 @@ def hyp_test():
     print('Mean using default dictionary: \t', def_mean)
     print('Mean using custom dictionary: \t', cus_mean)
     print('test statistic: \t\t', t)
+    # print('p-value: \t\t\t', '%f' % (pval))
     print('p-value: \t\t\t', pval)
 
     if pval < alpha:

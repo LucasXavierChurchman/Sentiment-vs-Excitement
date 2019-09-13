@@ -4,7 +4,7 @@
 ## Motivation:
 To most NBA fans, the 2016 Finals was one of the most legendary playoff series of all time. The Cleveland Cavaliers, led the greatest player on the planet, Lebron James, squared off against defending champions and regular season record setting Golden State Warriors, starring soon-to-be back-to-back league MVP Steph Curry. It's hard to overstate the hype going into the series and it delivered in every way. The underdog Cavs eventually won in 7 games after being down 3-1, a first for an NBA final series. Fans everywhere went wild. 
 
-But how wild? And who did? Can we determine, quantatatively, the excitement of Cavaliers fans when the finally ended their city's 52 year championship drought? What about the disappointment of Warriors fans for not finishing a near perfect season? Can we guage the reaction of fans across the world when [the block heard around the world](https://youtu.be/wgVOgGLtPtc?t=177) happened?
+But how wild? And who did? Can we determine, quantatatively, the excitement of Cavaliers fans when the finally ended their city's 52 year championship drought? What about the disappointment of Warriors fans for not finishing a near perfect season? Can we gauge the reaction of fans across the world when [the block heard around the world](https://youtu.be/wgVOgGLtPtc?t=177) happened?
 
 Let's try and find out.
 
@@ -72,11 +72,17 @@ The overall negative sentiment was alluded to before. This was obvious at first 
 
 This is a word cloud of all the words that appear in the comments which are scored in `Afinn()`. The 'f-bomb' and most of it's variations have a score of -4, and with the volume of which it appears in the comments, skews the sentiment data negatively extremely hard.
 
-This is inaccurate to reality. An "f-yeah LeBron!" in real life would be considered a positive reaction, but that comment would get scored as a -4.
-
-Luckily, editing python libraries is very easy. A copy of the library was made and the two biggest words from this word cloud were removed. This is how that simple edit changed the look of our sentiment plot
+Luckily, editing python libraries is very easy. A copy of the library was made and the two biggest words from this word cloud were removed from the scoring lexicon. This is how that simple edit changed the look of our sentiment plot
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityCustomAfinn.png "defaultvcustomafinn")
 
-A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.003**, which is significant at any reasonable alpha value and degrees of freedom
+A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.000002**, which is significant at any reasonable alpha value.
 
+These results are dramatic and should be taken with a grain of salt. An "f-yeah LeBron!" in real life would be considered a positive reaction, but that comment would get scored as a -4 before editing how the scoring lexicon. On the other hand, an "f-you Lebron!" is a negative reaction and probably should be scored a -4. However, both these examples with our new lexicon would be scored 0.
+
+The point here is that our sentiment analysis fails to account for one very important thing: context.
+
+## Takeaways
+Although this analysis evolved away from what it originally set out to do, an equal amount of knowledge was gained. Predicted trends of comment density between different indicators of fandom appeared in the plots and calculations. As a bonus, some degree of an inverse correlation between comment density and sentiment was shown, but the reasonsfor this are unclear.
+
+Furthermore, the 2nd part of the analysis displayed just how important context is for analysis text, especially when gauging sentiment. Instant, reactionary comments on social media are fundamentally different from well thought out response to, say, an email survey. This opens the door for future projects that take this into account, possibly utilizing the knowledge of some inverse correlation between sentiment and comment density.
