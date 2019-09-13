@@ -22,7 +22,7 @@ Let's try and find out.
 ## Data:
 For this project, using comments/tweets from either Reddit or Twitter was considered. In the end, Reddit comments were used for a few reasons.
 
-  * Structure: the comment-board design of reddit is easier to follow than Twitter's handling of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis
+  * Structure: the comment-board design of reddit is easier to follow than Twitter's handling of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis.
   
   * The team at pushshift.io has a [public database](https://files.pushshift.io/reddit/comments/) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [Google Big Query](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments). Thanks to this, a simple query using a thread's link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. 
   
@@ -38,20 +38,20 @@ For this project, using comments/tweets from either Reddit or Twitter was consid
  * Comments from the r/NBA game thread with Cavaliers flair (a user selected icon to indicate team allegiance)
  * Comments from the r/NBA game thread with Warriors flair
 
- Each comment was assigned a 'sentiment score' using the `Afinn()` library. This uses a machine-learning-generated lexicon of over 3000 words and values indicataing their positive/negative connotation (e.g. happy = 3, sad = -2). Each comment was assigned a score, the sum of all word values that appear in the lexicon (e.g. the comment 'happy sad' would have a score of 1).
+ Each comment was assigned a 'sentiment score' using the `Afinn()` library. This uses a machine-learning-generated lexicon of over 3000 words and values indicataing their positive/negative connotation (e.g. happy = 3, sad = -2). Each comment was assigned a score; the sum of all word values that appear in the lexicon (e.g. the comment 'happy sad' would have a score of 1).
  
- Each of these datasets were then filtered to capture the same time period (2 hours and 45 minutes from the start of the broadcast) then binned it could be analyzed in 'slices' over this time range. This binning was helpful because:
+ Each of these datasets were then filtered to capture the same time period (2 hours and 45 minutes from the start of the broadcast at 8pm EST, capturing comments a few minutes before tip-off and a few minutes after the game ended) and then binned so it could be analyzed in 'slices' over this time range. This binning was critical because:
  
- * It helped gauge general sentiment per slice of comments over time.
+ * It helped gauge general user sentiment in periods of time rather than per user comment.
  * Reactionary comments can be delayed because of broadcast delay, not being ready to comment the exact moment something exciting happens, etc.
  * It enabled looking at comment 'density' over time.
  
- For most of this analysis, 50 bins were used, translating to roughly 3.3 minutes per slice (2hr 45min = 9900 secs, 9900sec/50 bins = 198 secs/bin = 3.3 min/bin). This number, 50, was used because it was easy to remember while working between multiple scripts at once and translated to nice, digestible plots. 3.3 minutes might not be the friendliest time period to remember, however several reasonable numbers of bins, translating to slices of time ranging from 1 to 5 minutes, were tested and the results were largely the same.
+ For most of this analysis, 50 bins were used, translating to roughly 3.3 minutes per slice (2hr 45min = 9900 secs, 9900sec/50 bins = 198 secs/bin = 3.3 min/bin). This number, 50, was used because it was easy to remember while working between multiple scripts at once and translated to nice, digestible plots. 3.3 minutes might not be the friendliest time period to remember, however several reasonable numbers of bins, translating to slices of time ranging from 1 to 5 minutes, were tested and the results of the analysis were largely the same.
 
  ## Analysis
  ### Part 1: Sentiment and Density
  
-With the data prepared, line plots were simple enough to generate but give a perfect visual idea of what's of interest.
+With the data prepared, line plots were simple enough to generate and give a perfect visual idea of what's of interest.
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreCommentDensityDefault.png "main")
 
@@ -100,7 +100,6 @@ Furthermore, the 2nd part of the analysis displayed just how important context i
 
 * Reddit user /u/Stuck_In_the_Matrix and the rest of the Pushshift.io team for their Reddit comment database
 * Reddit user /u/fhoffa for uploading this database to Google Big Query
-* My friend, PhD Candidate Tim Howard, for reminding of the word 'anecdotal' when I couldn't remember it
 * The creators of the `Afinn()` library, along with the requested citation in their repo's readme:
 
  Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
