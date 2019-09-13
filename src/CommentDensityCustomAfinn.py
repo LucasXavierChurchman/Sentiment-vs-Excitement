@@ -1,4 +1,3 @@
-####### Plot mean sentiment scores and comment densities overlapping######
 import numpy as np 
 import pandas as pd 
 import matplotlib
@@ -15,7 +14,6 @@ custom_df = pd.read_csv('data/rNBACombinedScoredCustom.csv', sep = ',', low_memo
 # print(default_df[['body', 'sentiment_score']].loc[5795:5805])
 # print(custom_df[['body', 'sentiment_score']].loc[5795:5805])
 
-
 default_df, custom_df = PrepData.bin_dfs([default_df, custom_df], bins)
 
 default_data = default_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
@@ -23,16 +21,16 @@ custom_data = custom_df[['time_slice','sentiment_score']].groupby('time_slice').
 
 def plot_sentiment():
     matplotlib.rc('lines', linewidth=3)
-    fig, ax = plt.subplots(figsize=(100, 8))
+    fig, ax = plt.subplots(figsize=(15, 4))
 
     x = np.linspace(0, default_data.shape[0], num = default_data.shape[0])
     ax.plot(x, default_data['sentiment_score']['mean'], color = 'blue', alpha = 0.5)
     ax.plot(x, custom_data ['sentiment_score']['mean'], color = 'red', alpha = 0.5)
 
-    ax.set_ylim(-4,4)
+    ax.set_ylim(-3,3)
     ax.hlines(0, 0, bins, linestyles = 'dashed')
-    ax.set_title('Sentiment')
-    ax.legend(('default lexicon','custom_lexicon'), loc = 'upper left')
+    ax.set_title('r/NBA Sentiment')
+    ax.legend(('default lexicon','custom lexicon'), loc = 'upper left')
 
     plt.subplots_adjust(top=0.975,
                         bottom=0.025,
@@ -71,5 +69,6 @@ def hyp_test():
     # print(stats.ttest_ind(default_data['sentiment_score']['mean'], custom_data['sentiment_score']['mean']))
 
 if __name__ == "__main__":
-    plot_sentiment()
     hyp_test()
+    plot_sentiment()
+    

@@ -7,9 +7,9 @@ import seaborn as sns
 plt.style.use('seaborn-darkgrid')
 bins = 50
 
-nba_df = pd.read_csv('data/rNBACombinedScoredCustom.csv', sep = ',', low_memory = False)
-cavs_df = pd.read_csv('data/rCavsScoredCustom.csv', sep = ',')
-dubs_df = pd.read_csv('data/rDubsScoredCustom.csv', sep = ',')
+nba_df = pd.read_csv('data/rNBACombinedScored.csv', sep = ',', low_memory = False)
+cavs_df = pd.read_csv('data/rCavsScored.csv', sep = ',')
+dubs_df = pd.read_csv('data/rDubsScored.csv', sep = ',')
 
 #Create data frames for comments from the /r/nba thread by fans of either team based on their flair
 flair_cavs_df = nba_df[nba_df['author_flair_css_class'].str.contains('Cavaliers', na = False)]
