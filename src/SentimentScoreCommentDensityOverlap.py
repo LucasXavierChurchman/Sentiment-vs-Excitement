@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd 
 import matplotlib
 import matplotlib.pyplot as plt
+plt.rcParams.update({'font.size': 15})
 import PrepData
 plt.style.use('seaborn-darkgrid')
 bins = 50
@@ -74,5 +75,5 @@ def plot_density():
     plt.show()
 
 if __name__ == "__main__":
-    # plot_sentiment()
-    plot_density()
+    plot_sentiment()
+    # plot_density()
