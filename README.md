@@ -19,11 +19,11 @@ Let's try and find out.
 ## Data:
 For this project, using user activity data from either Reddit and Twitter was considered. In the end, Reddit comments were used for a few reasons.
 
-  **1)** Structure: the comment-board design of reddit is easier to follow than Twitter's handing of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis
+  * Structure: the comment-board design of reddit is easier to follow than Twitter's handing of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis
   
-  **2)** The team at pushshift.io has a [public database](https://files.pushshift.io/reddit/comments/) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [Google Big Query](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments). Thanks to this, a simple query using a thread's link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. 
+  * The team at pushshift.io has a [public database](https://files.pushshift.io/reddit/comments/) of the entire history of reddit comments. Creating the datasets was made even easier thanks to the fact this database has been uploaded to [Google Big Query](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_comments). Thanks to this, a simple query using a thread's link IDs and subreddit name gave the exact table that was desired and could be downloaded in a .csv format. 
   
-  **3)** I spend a lot (too much?) time on reddit so the platform is familiar.
+  * I spend a lot (too much?) time on reddit so the platform is familiar.
  
 
 
@@ -95,9 +95,9 @@ Furthermore, the 2nd part of the analysis displayed just how important context i
 
 ## Credits and Acknowledgements
 
-* Reddit user /u/Stuck_In_the_Matrix and the rest of the Pushshift.io team for their reddit comment database
-* Reddit user /u/fhoffa for uploading this database to Big Query
-* My friend Tim Howard for reminding of the word 'anecdotal' when I couldn't think of it
+* Reddit user /u/Stuck_In_the_Matrix and the rest of the Pushshift.io team for their Reddit comment database
+* Reddit user /u/fhoffa for uploading this database to Google Big Query
+* My friend, Tim Howard, for reminding of the word 'anecdotal' when I couldn't remember it
 * The creators of the `Afinn()` library, along with the requested citation in their repo's readme:
 
  Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
