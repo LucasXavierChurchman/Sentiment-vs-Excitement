@@ -17,7 +17,7 @@ But how wild? And who did? Can we determine, quantatatively, the excitement of C
 Let's try and find out.
 
 ## Data:
-For this project, using user activity data from either Reddit and Twitter was considered. In the end, Reddit comments were used for a few reasons.
+For this project, using comments/tweets from either Reddit or Twitter were considered. In the end, Reddit comments were used for a few reasons.
 
   * Structure: the comment-board design of reddit is easier to follow than Twitter's handing of tweets and their reply threads. Also, determining a commenters' team allegiance is much easier thanks to user flair and teams having individual subreddits, both of which turned out to be critical for this analysis
   
