@@ -87,7 +87,7 @@ Luckily, editing python libraries is very easy. A copy of the library was made a
 
 A hypothesis test for the difference in means of this data was performed, giving **p-val = 0.000002**, which is significant at any reasonable alpha value.
 
-These results are dramatic and should be taken with a grain of salt. An "f-yeah LeBron!" in real life would be considered a positive reaction, but that comment would get scored as a -4 before editing the scoring lexicon. On the other hand, an "f-you Lebron!" is a negative reaction and probably should be scored a -4. However, both these examples with our new lexicon would be scored 0.
+These results are dramatic and should be taken with a grain of salt. Before editing the lexicon, an "f-yeah LeBron!" in real life would be considered a positive reaction, but that comment would get scored as a -4. On the other hand, an "f-you Lebron!" is a negative reaction and really should be scored as a -4. However, both these examples with our new lexicon would be scored 0.
 
 The point here is that our sentiment analysis fails to account for one very important thing: context.
 
