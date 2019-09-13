@@ -75,5 +75,5 @@ def plot_density():
     plt.show()
 
 if __name__ == "__main__":
-    plot_sentiment()
-    # plot_density()
+    # plot_sentiment()
+    plot_density()
