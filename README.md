@@ -55,18 +55,16 @@ With the data prepared, line plots were simple enough to generate and give a per
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreCommentDensityDefault.png "main")
 
-Overall, there is an overall negative trend of sentiment in these comments (keep this in mind for Part 2). All of the density plots show an increase in comment frequency over the course of the game and a giant spike towards the end, which makes sense with how dramatic of a finish the game had. There appears to be a moderate degree of correlation between Cavs fans in their own subreddit and flaired fans in the r/NBA thread both in terms of sentiment and comment density. It's interesting that Warriors fans didnt demonstrate a similar pattern.
+* Overall, there is an overall negative trend of sentiment in these comments (keep this in mind for Part 2). All of the density plots show an increase in comment frequency over the course of the game and a giant spike towards the end, which makes sense with how dramatic of a finish the game had. There appears to be a moderate degree of correlation between Cavs fans in their own subreddit and flaired fans in the r/NBA thread both in terms of sentiment and comment density. It's interesting that Warriors fans didnt demonstrate a similar pattern.
 
-Originally one of the main goals of this analysis was to see if significant in-game events could be identified in these plots. Because NBA game data only records in game timestamps and not "real world" time, this wasn't possible for the scope of this analysis. However, plays like ["the block"](https://youtu.be/wgVOgGLtPtc?t=177) that happened around time = 45 can be identified by cross-referencing the .csv of the binned data and this plot.
+* Originally one of the main goals of this analysis was to see if significant in-game events could be identified in these plots. Because NBA game data only records in game timestamps and not "real world" time, this wasn't possible for the scope of this analysis. However, plays like ["the block"](https://youtu.be/wgVOgGLtPtc?t=177) can be identified at time = 45  by cross-referencing the .csv of the binned data and this plot.
 
-Although it doesn't result in much more insight, here are all of the plots for both sentiment and density overlaid one another.
+* Although it doesn't result in much more insight, here are all of the plots for both sentiment and density overlaid one another.
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/SentimentScoreOverlap.png "overlap scores")
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/CommentDensityOverlap.png "overlap densities")
 
-
-
-To the quantify correlations that appear to show up in these plots, a correlation heatmap was generated
+To the quantify correlations that appear to show in these plots, a correlation heatmap was generated
 
 ![alt text](https://github.com/LucasXavierChurchman/Capstone1/blob/master/images/Correlation.png "heatmap")
 
