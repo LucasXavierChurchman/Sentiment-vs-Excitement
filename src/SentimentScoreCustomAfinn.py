@@ -21,23 +21,24 @@ custom_data = custom_df[['time_slice','sentiment_score']].groupby('time_slice').
 
 def plot_sentiment():
     matplotlib.rc('lines', linewidth=3)
-    fig, ax = plt.subplots(figsize=(15, 4))
+    fig, ax = plt.subplots(figsize=(20, 4))
 
     x = np.linspace(0, default_data.shape[0], num = default_data.shape[0])
-    ax.plot(x, default_data['sentiment_score']['mean'], color = 'blue', alpha = 0.5)
-    ax.plot(x, custom_data ['sentiment_score']['mean'], color = 'red', alpha = 0.5)
+    ax.plot(x, default_data['sentiment_score']['mean'], color = 'orangered', alpha = 0.5)
+    ax.plot(x, custom_data ['sentiment_score']['mean'], color = 'orangered', linestyle = '-.', alpha = 0.5)
 
     ax.set_ylim(-3,3)
-    ax.hlines(0, 0, bins, linestyles = 'dashed')
-    ax.set_title('r/NBA Sentiment')
+    ax.hlines(0, 0, bins, linestyles = 'dashed', alpha = 0.5)
+    ax.set_title('r/NBA Sentiment Score')
+    ax.set_xlabel('Time Slice (1 slice = 3.3 minutes)')
     ax.legend(('default lexicon','custom lexicon'), loc = 'upper left')
 
     plt.subplots_adjust(top=0.975,
-                        bottom=0.025,
-                        left=0.025,
-                        right=0.975,
-                        hspace=0.07,
-                        wspace=0.05)
+                    bottom=0.025,
+                    left=0.025,
+                    right=0.975,
+                    hspace=0.07,
+                    wspace=0.05)
 
     plt.show()
 

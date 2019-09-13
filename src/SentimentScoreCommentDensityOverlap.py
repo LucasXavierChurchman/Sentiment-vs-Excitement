@@ -39,6 +39,7 @@ def plot_sentiment():
     ax.set_ylim(-4,4)
     ax.hlines(0, 0, bins, linestyles = 'dashed')
     ax.set_title('Sentiment v Time')
+    ax.set_xlabel('Time Slice (1 slice = 3.3 minutes)')
     ax.legend(('r/NBA','r/ClevelandCavs','r/NBA Cavs Flair','r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
     plt.subplots_adjust(top=0.975,
@@ -51,7 +52,7 @@ def plot_sentiment():
 
 def plot_density():
     matplotlib.rc('lines', linewidth=3)
-    fig, ax = plt.subplots(figsize=(15, 4))
+    fig, ax = plt.subplots(figsize=(20, 4))
 
     x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
     # ax.plot(x, nba_data['sentiment_score']['size'], color = 'orangered', alpha = 0.5) # skews the plot
@@ -60,7 +61,8 @@ def plot_density():
     ax.plot(x, dubs_data['sentiment_score']['size'], color = 'darkblue', alpha = 0.5)
     ax.plot(x, flair_dubs_data['sentiment_score']['size'], color = 'turquoise', alpha = 0.5)
 
-    ax.set_title('Comment Density (comments / 3.3 minute period)')
+    ax.set_title('Comment Density v Time')
+    ax.set_xlabel('Time Slice (1 slice = 3.3 minutes)')
     ax.legend(('r/ClevelandCavs','r/NBA Cavs Flair','r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
     plt.subplots_adjust(top=0.94,
@@ -72,5 +74,5 @@ def plot_density():
     plt.show()
 
 if __name__ == "__main__":
-    plot_sentiment()
-    # plot_density()
+    # plot_sentiment()
+    plot_density()

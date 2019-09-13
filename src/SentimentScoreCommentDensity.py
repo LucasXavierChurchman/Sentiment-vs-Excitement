@@ -21,7 +21,7 @@ nba_df, flair_cavs_df, flair_dubs_df, cavs_df, dubs_df = PrepData.bin_dfs(list_d
 
 
 matplotlib.rc('lines', linewidth=3)
-fig, ((ax1, ax2, ax3),(ax4, ax5, ax6)) = plt.subplots(2,3,figsize=(15, 4))
+fig, ((ax1, ax2, ax3),(ax4, ax5, ax6)) = plt.subplots(2,3,figsize=(20, 8))
 
 #rNba
 nba_data = nba_df[['time_slice','sentiment_score']].groupby('time_slice').agg([np.mean, np.sum, np.size])
@@ -30,12 +30,13 @@ x = np.linspace(0, nba_data.shape[0], num = nba_data.shape[0])
 ax1.plot(x, nba_data['sentiment_score']['mean'], color = 'orangered', alpha = 0.5)
 ax1.set_ylim(-3,3)
 ax1.hlines(0, 0, bins, linestyles = 'dashed')
-ax1.set_title('r/NBA Sentiment v Time')
+ax1.set_title('r/NBA Sentiment Score v Time')
 ax1.legend(('r/NBA',), loc = 'upper left')
 
 ax4.plot(x, nba_data['sentiment_score']['size'], color = 'orangered', alpha = 0.5)
-ax4.set_title('r/NBA Comment Density (comments / 3.3 minute period)')
+ax4.set_title('r/NBA Comment Density v Time')
 ax4.legend(('r/NBA',), loc = 'upper left')
+ax4.set_xlabel('Time Slice (1 slice = 3.3 minutes)')
 plt.grid()
 
 #Cavs
@@ -45,12 +46,13 @@ ax2.plot(x, cavs_data['sentiment_score']['mean'], color = 'maroon', alpha = 0.5)
 ax2.plot(x, flair_cavs_data['sentiment_score']['mean'], color = 'red', alpha = 0.5)
 ax2.set_ylim(-3,3)
 ax2.hlines(0, 0, bins, linestyles = 'dashed')
-ax2.set_title('Cavaliers Sentiment v Time')
+ax2.set_title('Cavaliers Sentiment Score v Time')
 ax2.legend(('r/ClevelandCavs','r/NBA Cavs Flair'), loc = 'upper left')
 
 ax5.plot(x, cavs_data['sentiment_score']['size'], color = 'maroon', alpha = 0.5)
 ax5.plot(x, flair_cavs_data['sentiment_score']['size'], color = 'red', alpha = 0.5)
-ax5.set_title('Cavaliers Comment Density (comments / 3.3 minute period)')
+ax5.set_title('Cavaliers Comment Density v Time')
+ax5.set_xlabel('Time Slice (1 slice = 3.3 minutes)')
 ax5.legend(('r/ClevelandCavs','r/NBA Cavs Flair'), loc = 'upper left')
 
 #Warriors
@@ -65,7 +67,8 @@ ax3.legend(('r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
 ax6.plot(x, dubs_data['sentiment_score']['size'], color = 'darkblue', alpha = 0.5)
 ax6.plot(x, flair_dubs_data['sentiment_score']['size'], color = 'turquoise', alpha = 0.5)
-ax6.set_title('Warriors Comment Density (comments / 3.3 minute period)')
+ax6.set_title('Warriors Comment Density v Time')
+ax6.set_xlabel('Time Slice (1 slice = 3.3 minutes)')
 ax6.legend(('r/Warriors','r/NBA Warriors Flair'), loc = 'upper left')
 
 plt.grid()
