@@ -1,4 +1,15 @@
 # Senitment vs Excitement
+
+# Table of Contents
+1. [Motivation](#motivation)
+2. [Data](#questions)
+4. [Cleaning](#cleaning)
+5. [Visualization](#visualization)
+6. [What's a Purify???](#what's-a-purify???)
+7. [Return to Visualization](#return-to-visualization)
+8. [Conclusion](#conclusion)
+9. [Photo and Data Credits](#photo-and-data-credits)
+
 ### Analyzing Real-Time Reactions to Game 7 of the 2016 NBA Finals
 ##### By Lucas Xavier Churchman
 
